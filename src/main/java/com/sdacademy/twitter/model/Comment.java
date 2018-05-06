@@ -7,7 +7,8 @@ import javax.persistence.*;
 /**
  * Class contains comments for the tweets
  */
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity

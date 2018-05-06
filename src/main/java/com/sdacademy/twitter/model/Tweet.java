@@ -1,10 +1,6 @@
 package com.sdacademy.twitter.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
-import lombok.Builder;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -12,7 +8,8 @@ import java.util.Set;
 /**
  * Class holds tweets of the user
  */
-@Data
+@Getter
+@Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
@@ -37,6 +34,6 @@ public class Tweet implements BaseEntity {
     @NonNull
     private Long creationTS;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "tweet", cascade = CascadeType.)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "tweet", cascade = CascadeType.ALL)
     private Set<Comment> comments;
 }

@@ -8,7 +8,8 @@ import java.util.Set;
 /**
  * This class is responsible for handling user data.
  */
-@Data
+@Getter
+@Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
@@ -35,9 +36,9 @@ public class User implements BaseEntity {
     @Column(nullable = false)
     private Long creationTS;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "author")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "author", cascade = CascadeType.REMOVE)
     private Set<Comment> comments;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user", cascade = CascadeType.REMOVE)
     private Set<Tweet> tweets;
 }
